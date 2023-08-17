@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #222;
+}
+.container
+{
+    height: 700px;
+    width: 700px;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background: blueviolet;
+    position: relative;
+    overflow: hidden;
+    cursor: none;
+}
+.btn
+{
+    position: relative;
+    width: 200px;
+    padding: 15px 23px;
+    background: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 40px;
+    transition: transform 0.5s;
+    overflow: hidden;
+}
+.btn span
+{
+    position: relative;
+    pointer-events: none;
+    color: rgb(255,255,255,0.25);
+    transition: 0.5s;
+}
+.btn:hover span
+{
+    color: rgb(255,255,255,1);
+}
+.btn::before
+{
+    content: "";
+    position: absolute;
+    top: var(--my);
+    left: var(--mx);
+    height: 0px;
+    width: 0px;
+    border-radius: 50%;
+    transform: translate(-50%,-50%);
+    background: var(--clr);
+    transition: 0.5s,top 0s,left 0s;
+    
+}
+.btn:hover::before{
+    height: 200px;
+    width: 200px;
+}
+
+
+.point
+{
+    position: absolute;
+    top: var(--y);
+    left: var(--x);
+    height:0px;
+    width: 0px;
+    border-radius: 50%;
+    background: #fff;
+    transform: translate(-50%,-50%);
+    transition: 1s,top 0s left 0s;
+    
+    
+}
+.container:hover .point
+{
+    
+    height: 20px;
+    width: 20px;
+    
+}
+
+

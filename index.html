@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <link rel="stylesheet" href="style.css" />
+  <body>
+    <div class="container">
+      <div class="point"></div>
+      <a href="#" class="btn" style="--clr: #ff6464"><span>Magnetic</span></a>
+      <a href="#" class="btn" style="--clr: #29aeef"><span>Button</span></a>
+    </div>
+  </body>
+  <script>
+    let point = document.querySelector(".point");
+    let container = document.querySelector(".container");
+    let btns = document.querySelectorAll(".btn");
+    btns.forEach((btn) => {
+      btn.addEventListener("mousemove", (e) => {
+        let x = e.offsetX - btn.clientWidth / 2;
+        let y = e.offsetY - btn.clientHeight / 2;
+        var mx = `${e.pageX - btn.offsetLeft - container.offsetLeft}px`;
+        var my = `${e.pageY - btn.offsetTop - container.offsetTop}px`;
+        btn.style.setProperty("--mx", mx);
+        btn.style.setProperty("--my", my);
+        btn.style.transform = `translateX(${x}px) translateY(${y}px)`;
+      });
+      btn.addEventListener("mouseout", (e) => {
+        btn.style.transform = "";
+      });
+    });
+    container.addEventListener("mousemove", (e) => {
+      var x = `${e.clientX - container.offsetLeft}px`;
+      var y = `${e.clientY - container.offsetTop}px`;
+      point.style.setProperty("--x", x);
+      point.style.setProperty("--y", y);
+      //   point.style.height = "20px";
+      //   console.log(container.offsetTop);
+    });
+  </script>
+</html>
